@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div>
+        <a class="btn btn-default" href="{% url 'photos:create' %}" role="button">사진올리기</a>
+        </div>
+            {% for photo in photos %}
+        <div class="col-md-4">
+            <a href="{% url 'photos:detail' photo_id=photo.pk %}">
+            <img src="{{ photo.image.url}}" alt="{{ photo.content }}" class="img-thumbnail">
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

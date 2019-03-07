@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<form method='POST' action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">로그인</button>
+    <br>
+<p>아이디가 없으신가요? <a href="{% url 'signup'%}">회원가입</a></p>
+</form>
+{% endblock %}
